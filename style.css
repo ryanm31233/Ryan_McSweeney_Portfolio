@@ -1,0 +1,457 @@
+/* Root variables define the color palette for the site. Adjust these to tweak the overall look without hunting through the file. */
+:root {
+  --bg-color: #0d1117;
+  --card-bg: #161b22;
+  --primary-color: #4f46e5; /* Indigo for futuristic accent */
+  --secondary-color: #06b6d4; /* Cyan accent */
+  --text-color: #f4f4f5;
+  --muted-text: #9ca3af;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+/* Basic resets */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  /* Use Poppins as the primary typeface with fallbacks */
+  font-family: 'Poppins', "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+.container {
+  width: 90%;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+/* Header and navigation styling */
+header {
+  background: rgba(13, 17, 23, 0.85);
+  position: sticky;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  backdrop-filter: blur(6px);
+}
+
+.nav-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.logo {
+  font-weight: 700;
+  font-size: 1.5rem;
+  color: var(--text-color);
+}
+
+.logo .accent {
+  color: var(--primary-color);
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+}
+
+nav a {
+  color: var(--text-color);
+  text-decoration: none;
+  position: relative;
+  padding-bottom: 4px;
+  transition: color var(--transition-speed);
+}
+
+nav a:hover,
+nav a.active {
+  color: var(--primary-color);
+}
+
+nav a.active::after,
+nav a:hover::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 100%;
+  background: var(--primary-color);
+}
+
+/* Hero section */
+.hero {
+  position: relative;
+  height: 75vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: #fff;
+  background: url('assets/hero-bg.png') center/cover no-repeat;
+}
+
+/* Layered radial gradients behind the hero content add depth and a futuristic vibe without overwhelming the minimal design. */
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  right: -50px;
+  bottom: -50px;
+  background:
+    radial-gradient(circle at 30% 30%, var(--primary-color) 0%, transparent 60%),
+    radial-gradient(circle at 70% 70%, var(--secondary-color) 0%, transparent 60%);
+  opacity: 0.15;
+  z-index: 0;
+}
+
+/* Style for the headshot image in the hero section */
+.hero .headshot {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid var(--primary-color);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  margin: 0 auto 1rem;
+  z-index: 1;
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3rem;
+  margin-bottom: 0.5rem;
+}
+
+.hero .subtitle {
+  font-size: 1.25rem;
+  color: var(--secondary-color);
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+}
+
+.hero .tagline {
+  max-width: 600px;
+  margin: 0 auto 2rem;
+  font-size: 1.1rem;
+  color: var(--muted-text);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--primary-color);
+  color: var(--bg-color);
+  padding: 0.75rem 2rem;
+  border-radius: var(--border-radius);
+  text-decoration: none;
+  font-weight: 600;
+  transition: background var(--transition-speed), transform var(--transition-speed);
+}
+
+.btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-2px);
+}
+
+/* Overview & general sections */
+.overview {
+  padding: 4rem 0 3rem;
+}
+
+.overview h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+/* Resume styling */
+.contact-info {
+  margin-bottom: 1.5rem;
+}
+
+.contact-info a {
+  color: var(--secondary-color);
+  text-decoration: none;
+}
+
+details {
+  margin-bottom: 1.5rem;
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1rem 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+details summary {
+  font-weight: 600;
+  font-size: 1.25rem;
+  cursor: pointer;
+  outline: none;
+}
+
+details summary::-webkit-details-marker {
+  display: none;
+}
+
+details h3 {
+  margin-top: 1rem;
+  font-size: 1.15rem;
+  color: var(--primary-color);
+}
+
+details ul.bullets {
+  list-style: disc;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footnotes {
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  margin-top: 2rem;
+  border-top: 1px solid #2a2f37;
+  padding-top: 1rem;
+}
+
+.footnotes h3 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: var(--secondary-color);
+}
+
+.footnotes ol {
+  padding-left: 1.5rem;
+}
+
+.footnotes li {
+  margin-bottom: 0.5rem;
+}
+
+/* Projects page */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+
+.project-card {
+  background: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+}
+
+/* Images inside project cards */
+.project-card img {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+/* Videos inside project cards */
+.project-card video {
+  width: 100%;
+  border-radius: var(--border-radius);
+  margin-bottom: 0.75rem;
+  display: block;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+}
+
+.project-card h3 {
+  margin-bottom: 0.75rem;
+  color: var(--primary-color);
+}
+
+.project-card p {
+  color: var(--muted-text);
+  font-size: 0.95rem;
+}
+
+/* Footer styling */
+footer {
+  background: #0b0f14;
+  padding: 1rem 0;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--muted-text);
+  border-top: 1px solid #1a1f27;
+}
+
+@media (max-width: 600px) {
+  .hero h1 {
+    font-size: 2.25rem;
+  }
+  .hero .subtitle {
+    font-size: 1rem;
+  }
+  nav ul {
+    gap: 1rem;
+  }
+}
+.contact-quick {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.cq-item {
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  text-decoration: none;
+  color: #fff; /* Force white text */
+  transition: transform 160ms ease, color 160ms ease;
+}
+
+.cq-item:hover {
+  transform: translateY(-1px);
+  color: #00d1ff; /* optional hover color for futuristic feel */
+}
+
+.cq-label {
+  font-size: 0.85rem;
+  opacity: 0.8;
+}
+
+.cq-value {
+  font-weight: 600;
+  letter-spacing: 0.2px;
+}
+
+.cq-separator {
+  color: rgba(255,255,255,0.5);
+  font-weight: 400;
+  font-size: 1.2rem;
+}
+/* --- Ensure grid stays the same --- */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.25rem;
+}
+
+/* --- Tile shell --- */
+.project-tile {
+  background: var(--card-bg, rgba(255,255,255,0.04));
+  border: 1px solid rgba(255,255,255,0.08);
+  border-radius: var(--border-radius, 16px);
+  overflow: hidden;
+  transition: transform 160ms ease, box-shadow 160ms ease, border-color 160ms ease;
+}
+.project-tile:hover {
+  transform: translateY(-2px);
+  border-color: rgba(255,255,255,0.16);
+}
+
+/* --- Cover area --- */
+.tile-cover {
+  position: relative;
+  aspect-ratio: 1 / 1;
+  overflow: hidden;
+}
+.tile-cover img,
+.tile-cover video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: saturate(1.05);
+}
+
+/* --- Title overlay pinned to bottom --- */
+.tile-title {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;           /* <- pins it to bottom */
+  padding: 0.75rem 1rem;
+  background: linear-gradient(0deg, rgba(0,0,0,0.48), rgba(0,0,0,0));
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  pointer-events: none; /* clicks go through title to the toggle below */
+}
+
+/* --- Click overlay only over the COVER (not the whole card) --- */
+.tile-toggle {
+  position: absolute;
+  inset: 0;
+  z-index: 2;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+}
+
+/* When open, disable the overlay so buttons are clickable */
+.project-tile.open .tile-toggle {
+  pointer-events: none;
+}
+
+/* --- Details panel (hidden by default) --- */
+.tile-details {
+  display: none;
+  padding: 0 1rem;
+  opacity: 0;
+  transition: opacity 220ms ease;
+  text-align: center; /* center all inline content, including buttons */
+}
+
+/* Reveal details when open */
+.project-tile.open .tile-details {
+  display: block;
+  padding: 1rem 1rem 1.1rem;
+  opacity: 1;
+}
+
+/* Buttons centered & spaced */
+.project-tile .btn {
+  display: inline-block;
+  margin: 0.5rem 0.5rem;
+  padding: 0.6rem 1.2rem;
+  background: var(--primary-color);
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s ease, transform 0.2s ease;
+}
+.project-tile .btn:hover {
+  background: var(--secondary-color);
+  transform: translateY(-1px);
+}
+
+/* Optional: caret flip if you use ▾ via ::after on title elsewhere */
+.project-tile.open .tile-title::after { transform: rotate(180deg); }

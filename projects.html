@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Projects – Ryan McSweeney</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<script>
+document.addEventListener("click", (e) => {
+  // Allow clicking the image area, title bar, or the (invisible) toggle button
+  const hit = e.target.closest(".tile-toggle, .tile-cover, .tile-title");
+  if (!hit) return;
+  const tile = hit.closest(".project-tile");
+  if (!tile) return;
+
+  const isOpen = tile.classList.toggle("open");
+  tile.setAttribute("aria-expanded", isOpen ? "true" : "false");
+});
+</script>
+
+<body>
+  <header>
+    <div class="container nav-container">
+      <div class="logo">R<span class="accent">M</span></div>
+      <nav>
+        <ul>
+          <li><a href="index.html">Home</a></li>
+          <li><a href="about.html">About</a></li>
+          <li><a href="resume.html">Resume</a></li>
+          <li><a href="projects.html" class="active">Projects</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <h1>Projects</h1>
+    <p>This section highlights some of the academic and personal projects I've been working on. More details will be added as the projects develop.</p>
+
+   <div class="projects-grid">
+
+  <!-- 1) Capstone Project – Small-Format Diverter Valve -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <img src="assets/valve-cad.png" alt="CAD model of the small-format diverter valve">
+      <div class="tile-title">Capstone – Small-Format Diverter Valve</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Served primarily as an Automation Engineer on a five-person capstone team sponsored by Toray Plastics.
+        Designed and implemented the control and wiring system for a 4-inch diverter valve to be used to
+        redirect polypropylene pellets between production lines. Programmed an Arduino Mega to drive
+        a NEMA 34 stepper motor via DM860H driver, integrated LED indicators for feedback, and
+        developed a Python GUI for operator control. Coordinated CAD prototyping and machining of
+        stainless-steel parts. The design was developed in accordance with food safety and quality standards.
+      </p>
+      <a class="btn" href="assets/Team_13_Final_Design_Report.pdf" target="_blank" rel="noopener">📄 Read Full Design Report</a>
+    </div>
+  </div>
+
+  <!-- 2) DIC Elastomer Testing (MCE 414) -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <img src="assets/elastomer-dic.png" alt="Strain field from digital image correlation testing">
+      <div class="tile-title">DIC Elastomer Testing</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Investigated the large-deformation behavior of elastomers using Digital Image Correlation (DIC).
+        Prepared dog-bone and disk specimens, applied speckle patterns, and conducted tensile and compression
+        tests on an Instron machine. Processed synchronized images to obtain full-field strain maps,
+        generated stress–strain curves, and compared elastic modulus values. Performed error analysis
+        (camera alignment, lighting, speckle quality) to assess measurement reliability.
+      </p>
+      <a class="btn" href="assets/MCE414_Lab_2.pdf" target="_blank" rel="noopener">📄 Read Full Lab Report</a>
+    </div>
+  </div>
+
+  <!-- 3) Stepper-Motor Linear Stage -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <video src="assets/linear-stage.mp4" muted preload="metadata"></video>
+      <div class="tile-title">Stepper-Motor Linear Stage</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Built a linear positioning stage with integrated safety and user-interface features.
+        Programmed Arduino firmware for state-based motion (jog left/right, stop, auto-reverse on limit),
+        wired limit switches, and added LED, buzzer, and 7-segment display indicators. Developed a
+        Python GUI to send serial commands for operator control. Demonstrated safe motion behavior,
+        reliable homing, and user-friendly interaction.
+      </p>
+      <a class="btn" href="assets/linear-stage.mp4" target="_blank" rel="noopener">▶️ Watch Demo</a>
+      <a class="btn" href="assets/MCE433_Final_Report_codes.pdf" target="_blank" rel="noopener">📄 Read Full Report</a>
+    </div>
+  </div>
+
+  <!-- 4) CFD – Flow Over a Circular Cylinder -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <img src="assets/pressure.png" alt="Pressure contours showing wake behind a cylinder">
+      <div class="tile-title">CFD – Flow Over a Cylinder</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Conducted a CFD study in OpenFOAM to analyze vortex shedding from a circular cylinder.
+        Modeled laminar and turbulent regimes using k-ω SST and Spalart–Allmaras turbulence models,
+        refined meshes, and applied appropriate boundary conditions. Extracted lift coefficient
+        histories, performed FFT for frequency analysis, and estimated Strouhal numbers for
+        validation against literature values. Strengthened skills in transient CFD simulation,
+        turbulence modeling, and post-processing.
+      </p>
+      <a class="btn" href="assets/Ryan_McSweeney_Final_White_Paper%20(1).pdf" target="_blank" rel="noopener">📄 Read Full White Paper</a>
+    </div>
+  </div>
+
+  <!-- 5) Wind Tunnel – Shear Stress Study -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <img src="assets/sweep_plane.jpg" alt="Wind tunnel sweep plane apparatus">
+      <div class="tile-title">Wind Tunnel – Shear Stress Study</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Performed experimental analysis of wind shear stress in a closed-circuit wind tunnel using
+        a sweep plane instrument. Calibrated sensors, aligned the measurement system, and collected
+        velocity profile data across multiple locations. Derived shear stress distributions and
+        evaluated correlations between flow conditions and aerodynamic loading. Developed practical
+        skills in experimental aerodynamics, instrumentation, and data interpretation.
+      </p>
+      <a class="btn" href="assets/MCE414_Lab_5_Report.pdf" target="_blank" rel="noopener">📄 Read Full Lab Report</a>
+    </div>
+  </div>
+
+  <!-- 6) CFD – Converging–Diverging Nozzle Shock -->
+  <div class="project-tile" aria-expanded="false">
+    <div class="tile-cover">
+      <img src="assets/mach_contours.png" alt="Mach contours showing shock in a nozzle">
+      <div class="tile-title">CFD – Nozzle Shock Simulation</div>
+      <button class="tile-toggle" aria-label="Toggle details"></button>
+    </div>
+    <div class="tile-details">
+      <p>
+        Simulated compressible flow in a converging–diverging nozzle using OpenFOAM to study normal
+        shock formation at varying back pressures. Generated Mach contour plots and compared
+        thermodynamic properties with control volume analysis. Achieved less than 7.5% error in
+        validation metrics, with minor discrepancies in post-shock pressure due to mesh resolution.
+        Reinforced expertise in compressible CFD, boundary condition setup, and quantitative error analysis.
+      </p>
+      <a class="btn" href="assets/White_paper_%233.pdf" target="_blank" rel="noopener">📄 Read Full Report</a>
+    </div>
+  </div>
+
+</div>
